@@ -1,7 +1,0 @@
-syntax = "proto3";
-option java_package = "com.xiaohongshu.ads.service.log.schema";
-option java_outer_classname = "AdsChipsLog";
-
-message AdsChipsInfo {
-    string note_id = 1;
-}

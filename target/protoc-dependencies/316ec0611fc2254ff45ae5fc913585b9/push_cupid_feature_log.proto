@@ -1,7 +1,0 @@
-syntax = "proto3";
-option java_package = "com.red.push.cupid.log";
-option java_outer_classname = "CupidRecBinaryFeatureLogSchema";
-
-message CupidRecBinaryFeatureLog {
-    bytes feature_log_body = 1;
-}
