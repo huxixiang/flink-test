@@ -1,0 +1,19 @@
+syntax = "proto3";
+option java_package = "com.red.rec.log.schema";
+option java_outer_classname = "SearchCplSchemaV2";
+
+message SearchCplInfoV2 {
+    string user_id = 1;
+    int64 position = 2;
+    int64 collect_time = 3;
+    string action = 4;
+    string search_word = 5;//final actual search word
+    string search_session_logs = 6;
+    string platform = 7;
+    /*
+    {LOG1, LOG2, LOG3.........}
+    each LOG is session_id#BASE64(input_word)#BASE64(backend_log)
+    */
+}
+
+

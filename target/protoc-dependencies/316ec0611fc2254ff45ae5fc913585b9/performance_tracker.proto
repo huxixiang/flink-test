@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_package = "com.red.rec.log.schema";
+option java_outer_classname = "PerformanceTracker";
+
+// 检索系统分实验\模型性能打点
+message PerformanceTrackerInfo {
+    string request_id = 1; // requestId 从上游生成，全局trackId
+    string exp_ids = 2; // 实验id # 分割
+    string model_name = 3; // 模型名称
+    int64 receive_time = 4; // 请求时间
+    int64 response_time = 5; // 完成时间
+    int64 response_note_num = 6; // 每个环节涉及到的笔记数
+    bool exception = 7; // 是否异常, 比如超时
+    string host = 8; // 主机名
+    string service_name = 9; // 服务名 如 nps, dolphin, tfs == 
+}

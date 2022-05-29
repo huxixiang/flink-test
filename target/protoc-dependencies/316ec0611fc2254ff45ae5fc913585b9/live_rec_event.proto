@@ -1,0 +1,28 @@
+syntax = "proto3";
+option java_package = "com.xiaohongshu.log.live.rec.schema";
+option java_outer_classname = "LiveRecLogProto";
+
+message LiveRecLog {
+  string source = 1;
+  string page_source = 2;
+  string user_id = 3;
+  string track_id = 4;
+  int64 request_timestamp_ms = 5;
+  int64 request_cost_ms = 6;
+  int32 request_size = 7;
+  double cursor_score = 8;
+  map<string, string> extra_info = 9;
+  repeated int32 exp_ids = 10;
+  repeated LiveRecInfo live_rec_infos = 11;
+}
+
+message LiveRecInfo {
+  string track_id = 1;
+  string live_id = 2;
+  string host_id = 3;
+  string reason = 4;
+  double ranking_score = 5;
+  double final_score = 6;
+  map<string, double> scores = 7;
+  map<string, string> extra_info = 8;
+}

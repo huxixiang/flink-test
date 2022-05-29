@@ -1,0 +1,27 @@
+syntax = "proto3";
+option java_package = "com.xiaohongshu.ads.third.log.schema";
+option java_outer_classname = "AdsThirdSendUrlEventSchema";
+
+message AdsSendUrlEvent {
+    string url = 1;
+    string source = 2;
+    string campaign = 3;
+    string uuid = 4;
+    string device_id = 5;
+    string user_agent = 6;
+    string track_id = 7;
+    string action = 8;
+    string platform = 9;
+    string ip = 10;
+    string collect_time = 11;
+    string idfa = 12;
+    repeated string sdk_url = 13;
+    string android_id = 14;
+    string imei = 15;
+    string oaid = 16;
+    string tracking_source = 17;
+    string country = 18;
+    string province = 19;
+    string city = 20;
+    string server_name = 21;
+}

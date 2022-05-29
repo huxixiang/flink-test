@@ -1,0 +1,23 @@
+syntax = "proto3";
+option java_package = "red.data.platform.log";
+option java_outer_classname = "TrackerServerLogModel";
+
+message TrackerServerLog {
+    // System.now()
+    int64 collect_tstamp = 1;
+    string collect_hostname = 2;
+    string http_remote_ip = 11;
+    // GET/POST/PUT
+    string http_request_method = 12;
+    // /api/ping
+    string http_request_uri = 13;
+    // 200/400/500
+    int32 http_status = 14;
+    int32 http_body_bytes_sent = 15;
+    string http_referer = 16;
+    string http_user_agent = 17;
+    string client_lang = 18;
+    bytes tracker_body = 21;
+    int32 validate_result_code = 23;
+    map<string, string> validate_extra_info = 24;
+}

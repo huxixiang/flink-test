@@ -1,0 +1,14 @@
+syntax = "proto3";
+option java_package = "com.red.risk.platform.common";
+option java_outer_classname = "FlashQueryInfo";
+
+message QueryInfo {
+    string sid = 1;
+    string group_key_name = 2;
+    string group_key_value = 3;
+    string aggcolumn = 4;
+    string algorithm = 5;
+    string condition = 6;
+    int64 slide_interval = 7;
+    string extra_args = 8;
+}

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_package = "com.red.rec.log.schema";
+option java_outer_classname = "LocalFeedLogSchema";
+
+message LocalFeed {
+    string user_id = 1;
+    string track_id = 2;
+    double latitude = 3;
+    double longitude = 4;
+    string platform = 5;
+    int64 app_version = 6;
+    string ip = 7;
+    string cold_start = 8;
+    string country = 9;
+    string province = 10;
+    string city = 11;
+    string county = 12;
+    int32 city_tier = 13;
+    string action_type = 14;
+    bool local_cate_gen = 15;
+    double cursor_score = 16;
+    int32 ret_note_size = 17;
+    string source_distribute = 18;
+    string extra_info = 19;
+    string tab_name = 20;
+    // 不能用，不能驼峰命名
+    int64 currentTime = 21;
+    int64 cur_time = 22;
+}

@@ -1,0 +1,7 @@
+syntax = "proto3";
+option java_package = "com.xiaohongshu.log.thrift.model";
+option java_outer_classname = "BinaryThriftRequest";
+
+message ThriftRequest {
+    bytes log_data_body = 1;
+}

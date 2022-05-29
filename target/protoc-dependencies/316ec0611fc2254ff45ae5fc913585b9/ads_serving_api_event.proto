@@ -1,0 +1,80 @@
+syntax = "proto3";
+option java_package = "com.xiaohongshu.adservingapi.log.schema";
+option java_outer_classname = "AdServingApiEventSchema";
+
+message AdServingApiEvent {
+    int64 request_time = 1;
+    string request_id = 2;
+    int32 placement = 3;
+
+    int32 adv_id = 4;
+    string seller_id = 5;
+    string brand_id = 6;
+    repeated int32 qualification_id = 7;
+    int32 first_industry_id = 8;
+    int32 second_industry_id = 9;
+
+    int32 unit_id = 10;
+    repeated int32 creativity_id = 11;
+    repeated string item_id = 12;
+
+    int32 promotion_target = 13;
+    string opt_type = 14;
+
+    string query = 15;
+    string business_target = 16;
+
+    string darkhorse_tax1 = 17;
+    string darkhorse_tax2 = 18;
+    string industry_tax = 19;
+    repeated string industry_attr = 20;
+
+    repeated string slot_exp_groups = 21; // 实验分组
+    repeated KeywordInfo keyword_info = 22;
+}
+
+message KeywordInfo {
+    string keyword = 1;
+    string normKeyword = 2;
+    int32 defaultKeyword = 3;
+
+    int32 bid = 4;
+
+    double rate = 5;
+    double score = 6;
+
+    string recommendLevel = 7;
+    double competitionScore = 8;
+    string competitionLevel = 9;
+    double trafficScore = 10;
+    string trafficLevel = 11;
+
+    int32 sessionSource = 12;
+    int32 source = 13;
+    int32 monthpv = 14;
+
+    int32 isBlueSeaWord = 15;
+    int32 isHighClickWord = 16;
+    int32 isIndustryBuyWord = 17;
+    int32 isDarkHorseWord = 18;
+    repeated string recommendReason = 19;
+}
+
+message QualityScoreInfo {
+    int64 advertiser_id = 1;
+    int64 campaign_id = 2;
+    int64 unit_id = 3;
+    int64 keyword_id = 4;
+    string keyword = 5;
+    int64 creativity_id = 6;
+    string note_id = 7;
+    string note_frame_url = 8;
+    string note_title = 9;
+    int32 quality_score = 10;
+    double ori_pctr = 11;
+    int32 estimated_ctr_score = 12;
+    double ori_relevance = 13;
+    int32 creativity_correaltion_score = 14;
+    int64 retrieve_update_time = 15;
+    int32 data_type = 16;
+}

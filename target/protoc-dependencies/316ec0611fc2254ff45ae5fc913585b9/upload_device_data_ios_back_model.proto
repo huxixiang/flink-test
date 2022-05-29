@@ -1,0 +1,17 @@
+syntax = "proto3";
+package xy.fingerprint;
+option java_package="com.xy.fingerprint.ios";
+option java_outer_classname = "IOSBackModelV2";
+
+import "upload_device_data_ios_model_v2.proto";
+
+message BackIosModel {
+    Model model=1;
+    SystemIosModel systemModel=2;
+}
+
+message SystemIosModel{
+   string public_ip = 1;
+   uint64 sys_timestamp =2;
+   string app_id = 3;
+}

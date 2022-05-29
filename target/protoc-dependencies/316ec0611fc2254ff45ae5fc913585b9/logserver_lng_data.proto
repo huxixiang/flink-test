@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_package = "red.data.platform.log";
+option java_outer_classname = "Lng";
+
+message LngTrackerModel {
+    string biz = 1;
+    string body = 2;
+}

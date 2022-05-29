@@ -1,0 +1,26 @@
+syntax = "proto3";
+option java_package = "red.rec.server.log.schema";
+option java_outer_classname = "NewUserHomeFeedRetrievalSchema";
+
+message NewUserHomeFeedRetrievalInfo {
+    // request in server
+    string request_id = 1;
+    string node_id = 2;
+    string user_id = 3;
+    // predict score in server
+    float score = 4;
+    float predict_click_ratio = 5;
+    float predict_like_ratio = 6;
+    float predict_collect_ratio = 7;
+    float predict_comment_ratio = 8;
+    float predict_share_ratio = 9;
+    float predict_follow_ratio = 10;
+    float predict_pagetime10_ratio = 11;
+    float predict_hide_ratio = 12;
+    float predict_viewtime_ratio = 13;
+    float predict_videocomplete_ratio = 14;
+    // changed columns in request
+    uint32 network_type = 15;
+    string viewer_tenure = 16;
+    string reason_type = 17;
+}

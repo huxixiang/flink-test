@@ -1,0 +1,35 @@
+syntax = "proto3";
+option java_outer_classname = "NsRecall";
+
+package com.red.application.recall;
+
+message NoteInfo {
+    string note_id = 1;
+    float click_boost = 2;
+    float hide_decrease = 3;
+    double soc_decay_score = 4;
+    int32 type = 5;
+    int32 video_duration = 6;
+}
+
+message Record {
+    bytes request_feature = 1;
+    repeated string notes = 2;
+    bytes rank_user_profile = 3;
+    string user_id = 4; 
+    bytes experiment_feature = 5;
+    repeated NoteInfo note_infos = 6;
+    bytes get_homefeed_request = 7;
+    bool ns_exp = 8;
+    bool client_downgrade = 9;
+}
+
+message FirstRankResult {
+    string user_id = 1;
+    repeated string notes = 2;
+    int64 timestamp = 3;
+    string trackId = 4;
+    bytes label = 5;
+    int64 request_ts = 6;
+
+}

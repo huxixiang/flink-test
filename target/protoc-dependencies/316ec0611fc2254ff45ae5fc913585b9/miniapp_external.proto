@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option java_package = "com.xiaohongshu.rmp.log.schema";
+option java_outer_classname = "Rmp";
+
+message MiniProgramExternalTrack {
+    string app_id = 1;
+    string app_user_id = 2;
+    string platform = 3;
+    string source = 4;
+    int64 create_time = 5;
+}

@@ -1,0 +1,33 @@
+syntax = "proto3";
+package com.xiaohongshu.sns.qualitynotepool.schema;
+
+option java_package = "com.xiaohongshu.sns.qualitynotepool.schema";
+option java_outer_classname = "QualityNotePoolSchema";
+
+message QualityNotePoolLambdaInferResult {
+    string user_id = 1;
+    string note_id = 2;
+    // 分数Map：scoreType -> score
+    string scores = 3;
+    // 使用的模型名
+    string model_name = 4;
+    // 使用的模型Version
+    int32 model_version = 5;
+    int64 timestamp = 6;
+}
+
+message QualityNotePoolReviewEvent {
+    string note_id = 1;
+    // 审核时间
+    int64 timestamp = 2;
+    // 笔记等级
+    int32 status = 3;
+    // 审核理由
+    string reason = 4;
+    // 审核人ID
+    string operator_id = 5;
+    // 审核人名
+    string operator_name = 6;
+    // 审核时相关的其他信息/特征 - 如算法分，笔记标签
+    string extra_data = 7;
+}

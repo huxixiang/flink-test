@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option java_package = "red.sns.search.server.log.schema";
+option java_outer_classname = "SnsSearchAccessLog";
+
+message AccessLog {
+    string search_id = 1;
+    string request = 2;
+    string response = 3;
+    int64 collected_time = 4;
+}

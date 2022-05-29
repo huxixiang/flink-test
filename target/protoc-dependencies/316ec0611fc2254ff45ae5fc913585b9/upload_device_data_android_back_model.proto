@@ -1,0 +1,17 @@
+syntax = "proto3";
+package fingerprint.android;
+option java_package="com.xy.fingerprint.android";
+option java_outer_classname = "BackAndroidModelV2";
+import "upload_device_data_android_model_v2.proto";
+
+message BackModel {
+    Model model=1;
+    SystemModel systenModel=3;
+}
+
+message SystemModel{
+   string public_ip = 1;
+   uint64 sys_timestamp =2;
+   string app_id = 3;
+   string app_list = 4;
+}

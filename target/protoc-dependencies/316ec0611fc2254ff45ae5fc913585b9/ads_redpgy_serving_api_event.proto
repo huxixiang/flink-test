@@ -1,0 +1,75 @@
+syntax = "proto3";
+option java_package = "com.xiaohongshu.redpgyservingapi.log.schema";
+option java_outer_classname = "RedPgyServingApiEventSchema";
+
+message RedPgyServingApiEvent {
+    string request_id = 1;
+    string user_id = 2; // 当前登录的品牌userId，代理或直投品牌userId
+    int64 request_time = 3;
+    int32 placement = 4;
+    string query = 5;
+    repeated string tags = 6;
+    repeated string region = 7;
+    int32 fans_number_lower = 8;
+    int32 fans_number_upper = 9;
+    int32 price_lower = 10;
+    int32 price_upper = 11;
+    SortTarget sort_target = 12;
+    bool ascend = 13;
+    bool pay_by_cpc = 14;
+    repeated string slot_exp_groups = 15; // 实验分组
+    int32 index = 16;
+    repeated KolInfo kol_info = 17;
+    repeated string persona_tag = 18;
+    string gender = 19;
+    repeated string feature_tag = 20;
+    string trade_type = 21;
+    int32 fans_age = 22;
+    int32 fans_gender = 23;
+    int32 fans_num_up = 24;
+    int32 note_price_lower = 25;
+    int32 note_price_upper = 26;
+    int32 video_price_lower = 27;
+    int32 video_price_upper = 28;
+    int32 note_type = 29;
+    int32 request_type = 30;
+    int32 new_high_quality = 31;
+    int32 kol_size = 32;
+    int32 result_type = 33; // 召回类型，1为个性化，2为业务规则
+    string target_user_id = 34; // 目标品牌userId，代理选择的品牌id或只投品牌id
+    int32 efficiency_valid = 35; // 优效模式标识
+}
+
+enum SortTarget {
+    RANKING_SCORE = 0;
+    FAN_NUMBER = 1;
+    BIZ_NOTE_NUMBER = 2;
+    PRICE = 3;
+    SIMILAR = 4;
+    CLICK_NUM = 5;
+    INTER_NUM = 6;
+}
+
+message KolInfo {
+    string kol_id = 1;
+    double rank_score = 2;
+    string gender = 3;
+    repeated ContentTag content_tags = 4;
+    int32 rec_source = 5;
+    repeated string persona_tag = 6;
+    repeated string feature_tag = 7;
+    string trade_type = 8;
+    int32 click_mid_num = 9;
+    int32 inter_mid_num = 10;
+    int32 fans_num = 11;
+    string match_type = 12;
+    int32 kol_note_weight = 13;
+    repeated string kol_note_list = 14;
+    string hit_word = 15;
+    int32 classify_code = 16; // 分档信息，1、2、3档
+}
+
+message ContentTag {
+    string tax1_tag = 1;
+    repeated string tax2_tag = 2;
+}

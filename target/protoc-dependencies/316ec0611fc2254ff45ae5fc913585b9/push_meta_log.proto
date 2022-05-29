@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_package = "com.red.push.log.meta";
+option java_outer_classname = "PushMetaLogSchema";
+
+message PushMetaLog {
+    string user_id = 1;
+    string eid = 2;
+    string template_id = 3;
+    string category_id = 4;
+    int64 expected_send_ts = 5;
+    bool is_push = 6;
+    bool is_message = 7;
+    bool is_text = 8;
+    string extra_data = 9; // event自带下传信息
+    string extra_render = 10; // 渲染过程中产生的信息
+    int64 log_ts = 11; // 服务记录日志时间
+}

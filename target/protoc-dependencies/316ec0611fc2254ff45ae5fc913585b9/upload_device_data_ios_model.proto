@@ -1,0 +1,179 @@
+syntax = "proto3";
+package com.xy.fingerprint.ios;
+
+option java_package = "com.xy.fingerprint.ios";
+option java_outer_classname = "IOSFingerprintModel";
+
+message IOSModel {
+    string name = 1;
+    string version = 2;
+    string token = 3;
+    double timestamp = 4;
+    
+    System sys = 5;
+    AppState app = 6;
+    Runtime runtime = 7;
+    Motion motion = 8;
+    TelephonyNetwork network = 9;
+}
+
+message System {
+    string name = 1;
+    string version = 2;
+    string build = 3;
+    string machine = 4;
+    string model = 5;
+    string kernel_version = 6;
+    bool is_jailbroken = 7;
+    int64 boot_time = 8;
+    int64 app_start_time = 9;
+    string executable_path = 10;
+    string executable_name = 11;
+    string bundle_id = 12;
+    string bundle_name = 13;
+    string bundle_version = 14;
+    string bundle_build = 15;
+    string app_id = 16;
+    string idfa = 17;
+    string idfv = 18;
+    string lang = 19;
+    string cpu_architecture = 20;
+    int64 cpu_type = 21;
+    int64 cpu_subtype = 22;
+    int64 binary_cpu_type = 23;
+    int64 binary_cpu_subtype = 24;
+    string timezone = 25;
+    string process_name = 26;
+    int64 process_id = 27;
+    int64 parent_process_id = 28;
+    string device_name = 29;
+    string device_app_hash = 30;
+    double native_width = 31;
+    double native_height = 32;
+    float native_scale = 33;
+    double screen_width = 34;
+    double screen_height = 35;
+    string build_type = 36; 
+    float brightness = 37;
+    uint64 free_memory = 38;
+    uint64 memory_size = 39;
+    uint64 usable_memory = 40;
+    uint64 free_storage = 41;
+    uint64 storage_size = 42;
+    float cpu_used = 43;
+    int64 cpu_sec = 44;
+    int64 cpu_usec = 45;
+    uint64 ram_used = 46;
+}
+
+message AppState {
+
+    enum battery_state_e {
+        battery_state_unknown = 0;
+        battery_state_unplugged = 1;
+        battery_state_charging = 2;
+        battery_state_full = 3;
+    }
+
+    enum bluetooth_state_e {
+        bluetooth_state_unknown = 0;
+        bluetooth_state_resetting = 1;
+        bluetooth_state_unsupported = 2;
+        bluetooth_state_unauthorized = 3;
+        bluetooth_state_poweredOff = 4;
+        bluetooth_state_poweredOn = 5;
+    }
+
+    bool is_active = 1;
+    bool is_foreground = 2;
+
+    uint64 active_times = 3;
+    uint64 grand_active_times = 4;
+    uint64 resign_active_times = 5;
+    uint64 grand_resign_active_times = 6;
+
+    uint64 foreground_times = 7;
+    uint64 grand_foreground_times = 8;
+    uint64 background_times = 9;
+    uint64 grand_background_times = 10;
+
+    uint64 terminate_times = 11;
+
+    uint64 foreground_duration = 12;
+    uint64 grand_foreground_duration = 13;
+    uint64 background_duration = 14;
+    uint64 grand_background_duration = 15;
+
+    string initial_bundle_version = 16;
+    string initial_bundle_buil = 17;
+    string bundle_version = 18;
+    string bundle_buil = 19;
+    
+    uint64 first_open_time = 20;
+    uint64 last_open_time = 21;
+
+    bool battery_monitoring_enabled = 22;
+    battery_state_e battery_state = 23;
+    float battery_level = 24;
+
+    bluetooth_state_e bluetooth_state = 25;
+}
+
+message Runtime {
+    uint64 load_sel_count = 1;
+    uint64 initialize_sel_count = 2;
+    uint64 class_count = 3;
+    uint64 image_count = 4;
+    uint64 framework_count = 5;
+    uint64 bundle_count = 6;
+    string all_bundle = 7;
+    string all_image = 8;
+    bool debugger_present = 9;
+    map<string, string> provision = 10;
+    string provision_md5 = 11;
+}
+
+message Motion {
+    message data {
+        double x = 1;
+        double y = 2;
+        double z = 3;
+        double timestamp = 4;
+        int64 error = 5;
+    }
+    message location {
+        double latitude = 1;
+        double longitude = 2;
+        double altitude = 3;
+        double horizontal = 4;
+        double vertical = 5;
+        double course = 6;
+        double speed = 7;
+        double timestamp = 8;
+        int64 level = 9;
+        int64 error = 10;
+    }
+
+    bool accelerometer_available = 1;
+    data accelerometer = 2;
+
+    bool gyro_available = 4;
+    data gyro = 5;
+
+    bool magnetometer_available = 7;
+    data magnetometer = 8;
+
+    bool loc_available = 9;
+    location loc = 10;
+}
+
+message TelephonyNetwork {
+    string carrier_name = 1;
+    string mobile_country_code = 2;
+    string mobile_network_code = 3;
+    string iso_country_code = 4;
+    bool allows_voip = 5;
+    bool can_makephone_calls = 6;
+    string cell_ip = 7;
+    string wifi_ip = 8;
+}

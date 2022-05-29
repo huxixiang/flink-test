@@ -1,0 +1,94 @@
+syntax = "proto3";
+
+option java_package = "com.xiaohongshu.infra.apm.okrate";
+option java_outer_classname = "Metrics";
+
+/**
+ * Kafka topic
+ */
+enum Topic {
+    unknown = 0;                // 防止新增的Topic被老版本的pb解析为ok_rate_thrift_server
+    ok_rate_thrift_server = 1;
+    ok_rate_thrift_client = 2;
+    ok_rate_http_server = 3;
+    ok_rate_http_client = 4;
+    ok_rate_redis_client = 5;
+    ok_rate_mysql_client = 6;
+}
+
+message HttpCall {
+    bool aggregated = 1;
+    RequestAggregationResult aggregation_result = 2;
+    uint64 rt = 3;
+    HttpFlow http_flow = 4;
+}
+
+message ThriftCall {
+    bool aggregated = 1;
+    RequestAggregationResult aggregation_result = 2;
+    uint64 rt = 3;
+    ThriftFlow thrift_flow = 4;
+}
+
+message RedisOp {
+    bool aggregated = 1;
+    RequestAggregationResult aggregation_result = 2;
+    uint64 rt = 3;
+    RedisFlow redis_flow = 4;
+}
+
+message MysqlOp {
+    bool aggregated = 1;
+    RequestAggregationResult aggregation_result = 2;
+    uint64 rt = 3;
+    MysqlFlow mysql_flow = 4;
+}
+
+message RequestAggregationResult {
+    uint32 count = 1;
+    uint64 interval = 2;
+    uint64 avg_rt = 3;
+    uint64 max_rt = 4;
+    uint64 p95_rt = 5;
+    uint64 p99_rt = 6;
+}
+
+message HttpFlow {
+    string caller_service = 1; 
+    string caller = 2;
+    string callee_service = 3;
+    string callee = 4;
+    int32 http_status_code = 5;
+    bool succeeded = 6;
+    string hostname = 7;
+}
+
+message ThriftFlow {
+    string caller_service = 1; 
+    string caller = 2;
+    string callee_service = 3;
+    string callee = 4;
+    int32 thrift_response_code = 5;
+    bool succeeded = 6;
+    string hostname = 7;
+}
+
+message MysqlFlow {
+    string caller_service = 1;
+    string caller = 2;
+    string db = 3;
+    string table = 4;
+    string method = 5;
+    bool succeeded = 6;
+    string hostname = 7;
+}
+
+message RedisFlow {
+    string caller_service = 1;
+    string caller = 2;
+    string server = 3;
+    string key = 4;
+    string method = 5;
+    bool succeeded = 6;
+    string hostname = 7;
+}

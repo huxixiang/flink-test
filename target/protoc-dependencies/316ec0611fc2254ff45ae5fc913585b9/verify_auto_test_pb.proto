@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option java_package = "com.xiaohongshu.agentsmithtest.verify";
+option java_outer_classname = "VerifyLogPb";
+
+message PbLogSample {
+    string user_id = 1;
+    string device_id = 2;
+    string platform = 3;
+    string exp_ids = 4;
+    string exp_ids_trace = 5;
+    uint64 timestamp = 6;
+    string project_id = 7;
+}

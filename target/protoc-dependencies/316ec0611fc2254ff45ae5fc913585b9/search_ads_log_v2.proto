@@ -1,0 +1,22 @@
+syntax = "proto3";
+option java_package = "com.red.rec.log.schema";
+option java_outer_classname = "SearchAdsSchemaV2";
+
+message SearchAdsLogV2 {
+    string user_id = 1;
+    string target_id = 2;
+    string request_id = 3;
+    string feature = 4;
+    LabelV2 label = 5;
+    bytes feature_byte = 6;
+}
+
+message LabelV2 {
+    bool clicked = 1;
+    int64 page_time = 2;
+    int64 start_timestamp = 3;  //会话开始时间
+    int32 object_position = 4;
+    map<string, string> extra_labels = 5;
+}
+
+

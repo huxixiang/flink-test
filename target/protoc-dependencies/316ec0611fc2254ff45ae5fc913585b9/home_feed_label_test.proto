@@ -1,0 +1,22 @@
+syntax = "proto3";
+option java_package = "red.rec.server.log.schema";
+option java_outer_classname = "HomeFeedLabelInfoTest";
+
+message HomeFeedLabelTest {
+    string user_id = 1;
+    string action_target = 2;
+    string track_id = 3;
+    bool impression = 4;
+    bool clicked = 5;
+    bool liked = 6;
+    bool commented = 7;
+    bool collected = 8;
+    bool hided = 9;
+    bool shared = 10;
+    float video_time = 11;
+    bool video_end = 12;
+    bool followed = 13;
+    float page_time = 14;
+    uint64 collect_time = 15;
+    string session_type= 16;
+}

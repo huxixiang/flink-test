@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+option java_package = "red.sns.circle.server.log.schema";
+option java_outer_classname = "RankMomentV1";
+
+message RankMoment{
+    string requestId = 1;
+    int64 id = 2;
+    int64 userId = 3;
+    int64 lastCommentTime = 4;
+    int64 lastLikeTime = 5;
+    int64 createTime = 6;
+    int64 commentCnt = 7;
+    int64 likeCnt = 8;
+    int64 imageClk = 9;
+    int64 commentClk = 10;
+    int64 userClk = 11;
+    int64 detailClk = 12;
+    float rankScore = 13;
+    int32 type = 14;
+    int64 requestUserId = 15;
+    int64 requestLastReadTime = 16;
+    int32 rankPos = 17;
+    float userRelComment = 18;
+    float userRelLike = 19;
+    int64 topicId = 20;
+    string tagType = 21;
+    int32 imageNum =22;
+    int32 l1CommentNum = 23;
+    int32 isFirst =24;
+
+    int64 requestTime = 25;
+    int32 todayUserClk = 26;
+    int32 todayCommentClk =27;
+    int32 todayImageClk = 28;
+    int32 toadyDetailClk = 29;
+    int32 todayImprCnt = 30;
+
+    int32 imprCnt =31;
+    int32 userAuthorCmtNum =32;
+    int32 authorUserCmtNum =33;
+    int32 userAuthorSayLikeNum =34;
+    int32 authorUserSayLikeNum =35;
+    int32 userAuthorTotalCmtNum = 36;
+    int32 authorUserTotalCmtNum=37;
+    int32 userAuthorCmtLikeNum=38;
+    int32 authorUserCmtLikeNum=39;
+    int32 userAuthorTotalSayLikeNum=40;
+    int32 authorUserTotalSayLikeNum=41;
+    int32 userAuthorTotalCmtLikeNum=42;
+    int32 authorUserTotalCmtLikeNum=43;
+
+    bool isRead=44;
+}
+

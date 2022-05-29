@@ -1,0 +1,187 @@
+syntax = "proto3";
+package xy.fingerprint;
+option java_package="com.xy.fingerprint.ios";
+option java_outer_classname = "IOSModelV2";
+
+message Model {
+    string name = 1; // iOS: parchment
+    string version = 2; // iOS: 0.0.1
+    string fid = 3; // iOS: 1558231541-0-0-3f0cb336-7b79-4dab-9c5b-f004528fc861
+    double timestamp = 4; // iOS: 1.558600623825659E9
+    
+    App app = 5;
+    System sys = 6;
+    State state = 7;
+    Motion motion = 8;
+    TelephonyNetwork network = 9;
+    OCRuntime oc = 10;
+
+    Extesion ext = 11;
+
+    // appid
+    uint32 appid =12;
+
+}
+
+message Extesion {
+    string device_id = 1;
+    string shumei_fingerprint = 2;
+    string session_id = 3;
+}
+
+message System {
+    string name = 1; // iOS: iOS
+    string version = 2; // iOS: 10.3.1
+    string build = 3; // iOS: 14E304
+    string machine = 4; // iOS: iPhone9,2
+    string model = 5; // iOS: D11AP
+    string kernel_version = 6; // iOS: Darwin Kernel Version 16.5.0: Thu Feb 23 23:22:55 PST 2017; root:xnu-3789.52.2~7/RELEASE_ARM64_T8010
+    bool rooted = 7; // iOS: false
+    int64 boot_time = 8; // iOS: 1558478172
+    string idfa = 9; // iOS: 2E667E2C-2AA2-47F2-BAC4-F2488D7F3A21
+    string idfv = 10; // iOS: 3F0CB336-7B79-4DAB-9C5B-F004528FC861
+    string lang = 11; // iOS: zh-Hans-CN
+    string cpu_architecture = 12; // iOS: arm64v8
+    int64 cpu_type = 13; // iOS: 16777228
+    int64 cpu_subtype = 14; // iOS: 1
+    int64 binary_cpu_type = 15; // iOS: 16777228
+    int64 binary_cpu_subtype = 16;
+    string timezone = 17; // iOS: GMT+8
+    string process_name = 18; // iOS: discover
+    int64 process_id = 19; // iOS: 1621
+    int64 parent_process_id = 20; // iOS: 1
+    string device_name = 21; // iOS: xxx's iPhone
+    string device_app_hash = 22; // iOS: 516eea1cb3dd87043289c79f54dea6f17cc82680
+    double native_width = 23; // iOS: 1080.0 Android: width_pixels
+    double native_height = 24; // iOS: 1920.0 Android: height_pixels
+    float native_scale = 25; // iOS: 2.6086957
+    double screen_width = 26; // iOS: 414.0
+    double screen_height = 27; // iOS: 736.0
+    string build_type = 28;  // iOS: app store
+    float brightness = 29; // iOS: 0.15737078
+    
+    uint64 memory_size = 30; // iOS: 3143630848
+    uint64 storage_size = 31; // iOS: 255989493760  
+}
+message App {
+    int64 start_time = 1; // iOS: 1558600622
+    string executable_path = 2; // iOS: /var/containers/Bundle/Application/A7AA600E-9B62-465F-ABD9-14DF2F5EA336/discover.app/discover
+    string executable_name = 3; // iOS: discover
+
+    string uuid = 4; // iOS: A07E00F8-07E2-3D02-9770-B10520240135
+
+    string name = 5; // iOS: discover 
+    string identifer = 6; // iOS: com.xingin.discover
+
+    string version = 7; // iOS: 5.51
+    string build = 8; // iOS: 5510170
+
+    string initial_version = 9; // iOS: 5.50
+    string initial_build = 10; // iOS: 5500545
+
+    string last_version = 11; // iOS: 5.50
+    string last_build = 12; // iOS: 5500545
+}
+
+enum battery_state_e {
+    battery_state_unknown = 0;
+    battery_state_unplugged = 1;
+    battery_state_charging = 2;
+    battery_state_full = 3;
+}
+
+message State {
+
+    uint64 free_memory = 1; // 
+    uint64 usable_memory = 2; // iOS: 2478145536
+    uint64 ram_used = 3; // iOS: 36717200
+
+    uint64 free_storage = 4;
+
+    float cpu_used = 5; // iOS: 92.90001
+    int64 cpu_sec = 6; // iOS: 1
+    int64 cpu_usec = 7; // iOS: 1457286
+     
+    bool is_active = 8; // iOS: true
+    bool is_foreground = 9; // iOS: false
+
+    uint64 active_times = 10; // iOS: 1
+    uint64 grand_active_times = 11; // iOS: 3
+    uint64 resign_active_times = 12; // iOS: 1
+    uint64 grand_resign_active_times = 13; // iOS: 3
+
+    uint64 foreground_times = 14; // iOS: 1
+    uint64 grand_foreground_times = 15; // iOS: 3
+    uint64 background_times = 16; // iOS: 1
+    uint64 grand_background_times = 17; // iOS: 3
+
+    uint64 terminate_times = 18; // iOS: 1
+
+    uint64 foreground_duration = 19;
+    uint64 grand_foreground_duration = 20;
+    uint64 background_duration = 21; // iOS: 25
+    uint64 grand_background_duration = 22; // iOS: 200
+    
+    uint64 first_open_time = 23; // iOS: 1558231543
+    uint64 last_open_time = 24; // iOS: 1558600622
+
+    bool battery_monitoring_enabled = 25; // iOS: true
+    battery_state_e battery_state = 26; // iOS: battery_state_unplugged
+    float battery_level = 27; // iOS: 0.88   
+}
+
+message OCRuntime {
+    uint64 load_sel_count = 1; // iOS: 238
+    uint64 initialize_sel_count = 2; // iOS: 550
+    uint64 class_count = 3; // iOS: 25449
+    uint64 image_count = 4; // iOS: 360
+    uint64 framework_count = 5; // iOS: 240
+    uint64 bundle_count = 6; // iOS: 10
+    string all_bundle = 7; // iOS: discover.app, zh_CN.lproj, AccessibilitySettingsLoader.bundle, XYPHMainBundle.bundle ...
+    string all_image = 8; // iOS: discover, Shield, XYPAAVFoundation, libSystem.B.dylib, libcache.dylib ...
+    bool debugger_present = 9;  // iOS: 
+    map<string, string> provision = 10;
+    string provision_md5 = 11;
+}
+
+message Motion {
+    double accelerometer_x = 1;
+    double accelerometer_y = 2;
+    double accelerometer_z = 3;
+    double accelerometer_timestamp = 4;
+    int64 accelerometer_error = 5;
+
+    double gyro_x = 6;
+    double gyro_y = 7;
+    double gyro_z = 8;
+    double gyro_timestamp = 9;
+    int64 gyro_error = 10;
+
+    double magnetometer_x = 11;
+    double magnetometer_y = 12;
+    double magnetometer_z = 13;
+    double magnetometer_timestamp = 14;
+    int64 magnetometer_error = 15;
+    
+    double location_latitude = 16; // iOS: 31.196769425982527
+    double location_longitude = 17; // iOS: 120.60134884435625
+    double location_altitude = 18; // iOS: 8.022893905639648
+    double location_horizontal = 19; // iOS: 65.0
+    double location_vertical = 20; // iOS: 10.0
+    double location_course = 21; // iOS: -1.0
+    double location_speed = 22; // iOS: -1.0
+    int64 location_level = 23;
+    double location_timestamp = 24; // iOS: 1.558600623613851E9
+    int64 location_error = 25;
+}
+
+message TelephonyNetwork {
+    string carrier_name = 1;
+    string mobile_country_code = 2; // iOS: 460
+    string mobile_network_code = 3;
+    string iso_country_code = 4; // iOS: cn
+    bool allows_voip = 5; // iOS: true
+    bool can_makephone_calls = 6; //false
+    string cell_ip = 7; // iOS: 100.87.213.131
+    string wifi_ip = 8; // iOS: fe80::48f:ab:da4b:d14f
+}

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option java_package = "red.sns.dasheng.server.log.schema";
+option java_outer_classname = "ProductOneboxSchema";
+
+message ProductOneboxInfo {
+    string query = 1;
+    string name = 2;
+    uint64 id = 3;
+}

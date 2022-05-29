@@ -1,0 +1,22 @@
+syntax = "proto3";
+option java_package = "com.xiaohongshu.ads.third.log.schema";
+option java_outer_classname = "AdsThirdPartyStateEventSchema";
+
+message AdsThridPartyStateEvent {
+    string status = 1;
+    string platform = 2;
+    string uuid = 3;
+    string request_time_spent = 4;
+    string request_times = 5;
+    string collect_time = 6;
+    string url = 7;
+    string source = 8;
+    string campaign = 9;
+    string action = 10;
+    string ip = 11;
+    string tracking_source = 12;
+    string country = 13;
+    string province = 14;
+    string city = 15;
+    string server_name = 16;
+}

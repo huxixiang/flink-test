@@ -1,0 +1,18 @@
+syntax = "proto3";
+option java_package = "com.red.rec.log.schema";
+option java_outer_classname = "TopicRecSchema";
+
+message TopicRecLog {
+    string user_id = 1;
+    string target_id = 2;
+    string request_id = 3;
+    string feature = 4;
+    LabelV3 label = 5;
+    bytes feature_byte = 6;
+}
+
+message LabelV3 {
+    bool clicked = 1;
+}
+
+

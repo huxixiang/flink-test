@@ -1,0 +1,24 @@
+syntax = "proto3";
+option java_package = "com.xiaohongshu.ads.service.log.schema";
+option java_outer_classname = "CreativitySelectInfoSchema";
+
+message CreativitySelectInfo {
+    string user_id = 1;
+    string request_id = 2;
+    string ads_uuid = 3;
+    string note_id = 4;
+    string detail_title = 5;
+    int32 note_result = 6;
+    string version = 7;
+    string version_detail = 8;
+    int32 detail_imp = 9;
+    double detail_click = 10;
+    double detail_ctr = 11;
+    double detail_reward = 12;
+    double detail_bound = 13;
+    double detail_cost = 14;
+    int32 is_select = 15;
+    string select_result = 16;
+    double pctr = 17;
+    double pcvr = 18;
+}

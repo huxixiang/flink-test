@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_package = "com.xiaohongshu.enterprise.log.schema";
+option java_outer_classname = "ExternalChannel";
+
+message Track {
+    string token = 1;
+    string device = 2;
+    string client_version = 3;
+    int32 biz_type = 4;
+    int32 page_key = 5;
+    string page_id = 6;
+    string visitor_user_id = 7;
+    string visited_user_id = 8;
+    int64 timestamp = 9;
+    int64 create_time = 10;
+    int32 open_type = 11;
+    string app_id = 12;
+}

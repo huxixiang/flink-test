@@ -1,0 +1,103 @@
+syntax = "proto3";
+option java_package = "com.xiaohongshu.sns.wolverine.dto";
+option java_outer_classname = "AuditResultEventDto";
+
+message FinalResult {
+    string final_handle_result = 1;
+    string final_master_handle_result = 2;
+    string final_audit_queue = 3;
+    string handle_results = 5;
+    string audit_queues = 7;
+    string ecology_handle_results = 8;
+    string ecology_queues = 9;
+    string hooks = 11;
+    string spot_queues = 13;
+    string reason_groups = 15;
+    string hit_handler_strategies = 18;
+}
+
+message AtomicResult {
+    string strategy_id = 1;
+    string strategy_name = 4;
+    string process_id = 7;
+    string content_type = 10;
+    string action_type = 13;
+    int64 priority = 17;
+    string request_arguments = 20;
+    string optional_arguments = 23;
+    string json_data = 26;
+}
+
+message StrategyHandle {
+    string strategy_id = 1;
+    string handle_type = 4;
+    string handle_enum_name = 7;
+    int64 priority = 10;
+}
+
+message StrategyAnalysisConfig {
+    string config_name = 1;
+    string strategy_id = 4;
+    string first_strategy_type = 7;
+    string second_strategy_type = 10;
+    string strategy_handle_type = 13;
+    string remark_comment = 16;
+    string source = 19;
+    string content_type = 22;
+    string handler_results = 25;
+    string first_strategy_code = 28;
+    string second_strategy_code = 31;
+}
+
+message Strategy {
+    string strategy_id = 1;
+    string edge_id = 4;
+    string rule_id = 7;
+    int64 rule_version = 10;
+    int64 priority = 13;
+    repeated StrategyHandle strategy_handles = 16;
+    StrategyAnalysisConfig strategy_analysis_config = 19;
+}
+
+message OriginTask {
+    string risk_id = 1;
+    string scenario_id = 4;
+    string unq_biz_id = 7;
+    string history_id = 10;
+    int64 timestamp = 13;
+    map<string, string> params = 16;
+}
+
+message AuditResultEvent {
+    string audit_uuid = 1;
+    string trace_id = 4;
+    string scenario_id = 7;
+    string business_id = 10;
+    string history_id = 13;
+    int64 origin_timestamp = 15;
+    int64 timestamp = 16;
+    int64 start_timestamp = 17;
+    string hive_table_name = 19;
+    string task_source = 22;
+    string task_status = 25;
+    string graph_id = 31;
+    string routed_node_ids = 34;
+    string visited_factor_ids = 35;
+    string hit_rule_ids = 37;
+    string failed_strategy_ids = 38;
+    string routed_rule_ids = 40;
+    string default_strategy_ids = 41;
+    string hit_strategy_ids = 43;
+    string failed_factor_ids = 44;
+    string routed_strategy_ids = 46;
+    string default_factor_ids = 47;
+    OriginTask origin_task = 49;
+    FinalResult final_result = 52;
+    repeated AtomicResult atomic_result = 53;
+    map<string, string> calculated_values = 55;
+    map<string, string> all_values = 58;
+    repeated Strategy hit_strategies = 61;
+    repeated Strategy routed_strategies = 64;
+    string hit_extra_data_list = 67;
+    string atomic_process_ids = 70;
+}

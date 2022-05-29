@@ -1,0 +1,16 @@
+syntax = "proto3";
+package mlsys;
+
+// =============== response param =============
+message IbResponse {
+    int32 label_response = 1;
+    double detect_response = 2;
+    string create_time = 3;
+    string add = 4;
+    TestIb aier = 5;
+}
+message TestIb{
+    int32 id = 1;
+    string name = 2;
+    double value = 3;
+}
