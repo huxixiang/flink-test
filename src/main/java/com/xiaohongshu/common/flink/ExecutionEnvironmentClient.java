@@ -2,6 +2,7 @@ package com.xiaohongshu.common.flink;
 
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.configuration.RestOptions;
+import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
@@ -14,6 +15,7 @@ public class ExecutionEnvironmentClient {
         // 指定本地WEB-UI端口号
         configuration.setInteger(RestOptions.PORT, 8082);
         StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironment(configuration);
+        env.getCheckpointConfig().setCheckpointingMode(CheckpointingMode.EXACTLY_ONCE);
         return env;
     }
 
